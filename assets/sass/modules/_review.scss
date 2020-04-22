@@ -1,0 +1,21 @@
+.review {
+  color: $white;
+  text-align: center;
+
+  h3 {
+    padding: 25px 0;
+    background: $light-primary;
+    font-weight: $bold;
+  }
+
+  &__slider {
+    padding: 80px 8%;
+    background: $primary;
+
+    li {
+      @include flex;
+
+      &:not(:first-child) { display: none; }
+    }
+  }
+}

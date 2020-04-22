@@ -72,11 +72,7 @@
     font-size: $twenty-two;
   }
 
-  .our-sucess__content {
-    @include flex-basis(50%);
-  }
+  .our-sucess__content {  @include flex-basis(50%); }
 
-  figure {
-    @include flex-basis(50%);
-  }
+  figure {   @include flex-basis(50%);  }
 }
