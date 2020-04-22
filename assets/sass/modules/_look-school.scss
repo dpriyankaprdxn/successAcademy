@@ -1,0 +1,64 @@
+.look-school {
+  padding-top: 77px;
+  
+  ul {
+    background: $primary;
+    color: $white;
+    @include flex;
+
+    @include breakpoint('ipad') {
+      @include flex-direction(column-reverse);
+    }
+  }
+
+  li{
+    &:first-child { 
+      @include vendor(box-sizing,border-box);
+      padding: 80px 5% 20px 10%;
+      @include flex-basis(47%); 
+
+      a {
+        padding: 10px 20px;
+        border : 1px solid $white;
+        @include vendor(border-radius,4px);
+        margin-top : 30px;
+        color : $white;
+
+        @include reverse-breakpoint('notebook') {
+          &:hover {
+            background-color: $white;
+            color: $primary;
+          }
+        }
+
+        @include breakpoint('ipad') {
+          &:before {
+            content: '\f04b';
+            margin-left: 14px;
+            float: right;
+            font-family: $font-awesome;
+          }
+        }
+      }
+    }
+  }
+
+  h3 { 
+    margin-bottom: 15px;
+    font-weight: $bold; 
+  }
+
+  &__video {
+    position: relative;
+    @include flex-basis(70%);
+
+    a {
+      &:before {
+        content: '\f01d';
+        @include position(absolute,unset,50%,unset,unset,50%);
+        color : $white;
+        font: $seventy-five $font-awesome;
+      }
+    }
+  }
+}
