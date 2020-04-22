@@ -31,3 +31,13 @@ li {
   width: 91.2%; 
   margin: 0 auto;
 }
+
+h1 { @include flex-basis(20%); }
+
+.mobile-image { display: none; }
+
+@include breakpoint('ipad') {
+  .mobile-image { display: block; }
+
+  .desktop-image { display: none; }
+}

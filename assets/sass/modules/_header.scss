@@ -1,6 +1,16 @@
+%font-icon {
+  text-indent: -9999px;
+
+  &:before {
+    float: left;
+    font: $sixteen $font-awesome;
+    text-indent: 0;
+  }
+}
+
 .top-header {
   padding: 4px 0 5px;
-  margin : 37px 0 34px;
+  margin-top : 37px;
   @include flex;
   background: $primary;
   @include align-item(center);
@@ -58,7 +68,15 @@
   &__dropdown { 
     position: relative; 
 
-    a {
+    & > a {
+      &:before { 
+        content: "\f107"; 
+        margin-left: 2px;
+        float: right;
+
+       @extend %font-icon;
+      }
+
       &:hover {
         & + ul { display: block; }
       }
@@ -95,18 +113,50 @@
   img { width: 8px; }
 }
 
-%font-icon {
-  text-indent: -9999px;
-
-  &:before {
-    float: left;
-    font: $sixteen $font-awesome;
-    text-indent: 0;
-  }
-}
-
 .icon__pinterest {
   @extend %font-icon;
 
   &:before { content: '\f0d2'; }
+}
+
+.main-header {
+  @include flex;
+  @include align-item(center);
+  @include justify-content(space-between);
+
+  .menu {
+    @include flex-basis(95%);
+
+    &__hamburger {
+      display: none; 
+
+      @include breakpoint('ipad') {
+        display: block;
+      }
+    }
+  }
+
+  img { margin-left: -22%;  }
+
+  ul {
+    @include flex;
+    @include justify-content(space-around);
+  }
+
+  li {
+    @include flex-basis(50%); 
+    text-align: center;
+
+    &:not(:last-child) { border-right: 1px solid $border; }
+  }
+
+  a {
+    color: $primary;
+    font : $bold $twelve $sans-serif;
+    text-transform: uppercase;
+
+    @include reverse-breakpoint('notebook') {
+      &:hover { color: $secondary; }
+    }
+  }
 }
