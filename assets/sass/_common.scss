@@ -1,0 +1,33 @@
+.cf:before,
+.cf:after {
+  display: table;
+  content: " ";
+}
+
+.cf:after { clear: both; }
+.cf { *zoom: 1; }
+
+/*for all*/
+body {
+  @include vendor(box-sizing,border-box);
+  font-family: sans-serif;
+}
+
+a { 
+  display: inline-block;
+  cursor: pointer;
+  @include vendor(transition,.5s ease);
+  text-decoration: none; 
+}
+
+li {
+  display: inline-block;
+  list-style-type: none;
+}
+
+/*for wrapper*/
+.wrapper {
+  max-width: 1360px;
+  width: 91.2%; 
+  margin: 0 auto;
+}

@@ -1,0 +1,112 @@
+.top-header {
+  padding: 4px 0 5px;
+  margin : 37px 0 34px;
+  @include flex;
+  background: $primary;
+  @include align-item(center);
+  @include justify-content('flex-end');
+
+  ul {
+    &:first-child {  
+      @include flex;
+      @include flex-basis(66%); 
+      @include justify-content(space-around);
+
+      li {
+        @include flex-basis(50%);
+        text-align: center;
+  
+        &:not(:first-child) {  border-left: 1px solid $white;    }
+      }
+    }  
+  }
+
+  a {
+    color : $white;
+    font-size: $twelve;
+
+    @include reverse-breakpoint('notebook') {
+      &:hover { color: $secondary; }
+    }
+  }
+
+  &__modal { display: none; }
+
+  &__icons {
+    padding: 0 1%;
+    border-left : 1px solid $white;
+    @include flex;
+    @include flex-basis(15%);
+    @include justify-content(space-around);
+
+    li {
+      @include flex-basis(10%);
+      text-align: center;
+    }
+
+    a {
+      width: 100%;
+
+      @include reverse-breakpoint('notebook') {
+        &:hover { background: $grey; }
+      }
+    }
+
+    img { width: 14px; }
+  }
+
+  &__dropdown { 
+    position: relative; 
+
+    a {
+      &:hover {
+        & + ul { display: block; }
+      }
+    }
+
+    ul {
+      padding: 10px 0;
+      display: none;
+      @include position(absolute,unset,75%,0,unset,0);
+      background: $primary;
+      text-align: center;
+    }
+
+    li {
+      margin-bottom: 5px;
+      display: block;
+    }
+  }
+
+  & > div {
+    border-left: 1px solid $white;
+    @include flex-basis(5%);
+    text-align: center;
+
+    a {
+      @extend %font-icon;
+
+      &:before { content: '\f002'; }
+    }
+  }
+}
+
+.icon__facebook {
+  img { width: 8px; }
+}
+
+%font-icon {
+  text-indent: -9999px;
+
+  &:before {
+    float: left;
+    font: $sixteen $font-awesome;
+    text-indent: 0;
+  }
+}
+
+.icon__pinterest {
+  @extend %font-icon;
+
+  &:before { content: '\f0d2'; }
+}
