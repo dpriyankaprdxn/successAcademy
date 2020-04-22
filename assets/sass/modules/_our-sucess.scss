@@ -1,0 +1,82 @@
+@at-root .our-success {
+  padding : 70px 0;
+  li {
+    overflow: hidden;
+    @include flex;
+
+    &:first-child {
+      h3 { 
+        background: $blue; 
+      
+        &:before {   color: $blue; }
+      }
+    }
+
+    &:nth-child(2) {
+      @include flex-direction(row-reverse);
+
+      h3 { 
+        margin-left: -25%;
+        background: $primary; 
+
+        &:before {   
+          left : 50%;
+          color: $primary; 
+        }
+
+        @include breakpoint('ipad') { margin-left: 0; }
+      }
+
+      @include breakpoint('ipad') {
+        @include flex-direction(column-reverse);
+      }
+    }
+
+    &:last-child {
+      h3 { 
+        background: $sky-blue; 
+
+        &:before {   color: $sky-blue; }
+      }
+    }
+
+    @include breakpoint('ipad') {
+      @include flex-direction(column-reverse);
+
+      a { display: block; }
+    }
+  }
+
+  h3 {
+    @include vendor(box-sizing,border-box);
+    width: 125%;
+    padding: 50px 0;
+    position: relative;
+    color: $white;
+    text-align: center;
+
+    &:before {
+      content: "\f0d7";
+      @include position(absolute,unset,75%,unset,unset,35%);
+      font: $eighty $font-awesome;
+
+      @include breakpoint('ipad') {  left: 50%;   }
+    }
+
+    @include breakpoint('ipad') {  width: 100%;   }
+  }
+
+  p {
+    padding: 50px 14%;
+    color: $light-grey;
+    font-size: $twenty-two;
+  }
+
+  .our-sucess__content {
+    @include flex-basis(50%);
+  }
+
+  figure {
+    @include flex-basis(50%);
+  }
+}
