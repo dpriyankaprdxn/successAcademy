@@ -34,6 +34,13 @@ li {
 
 h1 { @include flex-basis(20%); }
 
+h2 {
+  @include position(absolute,unset,unset,unset,10%,10%);
+  color: $white;
+  font: $bold $forty-five $sans-serif;
+  text-transform: uppercase;
+}
+
 .mobile-image { display: none; }
 
 @include breakpoint('ipad') {

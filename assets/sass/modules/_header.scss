@@ -28,6 +28,8 @@
   
         &:not(:first-child) {  border-left: 1px solid $white;    }
       }
+
+      @include breakpoint('ipad') { display: none; }
     }  
   }
 
@@ -63,6 +65,8 @@
     }
 
     img { width: 14px; }
+
+    @include breakpoint('ipad') { display: none; }
   }
 
   &__dropdown { 
@@ -136,11 +140,21 @@
     }
   }
 
-  img { margin-left: -22%;  }
+  img { 
+    margin-left: -22%;  
+
+    @include breakpoint('ipad') { 
+      width: 40%;
+      margin-left: 8%; 
+      background: $white;
+    }
+  }
 
   ul {
     @include flex;
     @include justify-content(space-around);
+
+    @include breakpoint('ipad') { @include flex-direction(column); }
   }
 
   li {
@@ -148,6 +162,8 @@
     text-align: center;
 
     &:not(:last-child) { border-right: 1px solid $border; }
+    
+    @include breakpoint('ipad') { margin-bottom: 10px; }
   }
 
   a {
@@ -158,5 +174,16 @@
     @include reverse-breakpoint('notebook') {
       &:hover { color: $secondary; }
     }
+
+    @include breakpoint('ipad') { color: $white; }
+
+  }
+
+  @include breakpoint('ipad') {
+    padding: 10px 0;
+    background: $primary;
+    color : $white;
+
+    nav { display: none; }
   }
 }
